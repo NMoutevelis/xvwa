@@ -58,8 +58,10 @@ $submit = isset($_GET['action']) ? $_GET['action'] : '';
                     echo "<li class=\"cross\">Can not create table comment. Try submit/reset again. </li>"; 
                 }
             }else{            
-                echo "<li class=\"cross\">Failed to use/select database. Check the configuration file.".mysql_error()."</li>";
+                echo MESSAGE.mysql_error()."</li>";
             }
+
+	     MESSAGE = "<li class=\"cross\">Failed to use/select database. Check the configuration file.";
 
             //creating product_caffe table
             $table_product=$conn->query('CREATE TABLE caffaine(itemid int not null primary key auto_increment, itemcode varchar(15),itemdisplay varchar(500),itemname varchar(50),itemdesc varchar(1000),categ varchar(200),price varchar(20))');
@@ -80,7 +82,7 @@ $submit = isset($_GET['action']) ? $_GET['action'] : '';
                     echo "<li class=\"cross\">Can not create table products. Try submit/reset again.".mysql_error()." </li>"; 
                 }
             }else{            
-                echo "<li class=\"cross\">Failed to use/select database. Check the configuration file.".mysql_error()."</li>";
+                echo MESSAGE.mysql_error()."</li>";
             }
             //creating user table
             $table_user=$conn->query("CREATE table users(uid int not null primary key auto_increment, username varchar(20),password varchar(50))");
@@ -97,7 +99,7 @@ $submit = isset($_GET['action']) ? $_GET['action'] : '';
                     echo "<li class=\"cross\">Can not create table users. Try submit/reset again.".mysql_error()." </li>"; 
                 }
             }else{
-                echo "<li class=\"cross\">Failed to use/select database. Check the configuration file.".mysql_error()."</li>";   
+                echo MESSAGE.mysql_error()."</li>";   
             }
 
             
