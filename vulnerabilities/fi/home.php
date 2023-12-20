@@ -41,7 +41,7 @@
                     if (isset($_GET['file'])) {
                         $file=$_GET['file'];
                         if (in_array($file, $INCLUDE_ALLOW_LIST)) {
-                        include $file;
+                        include_once $file;
                         }
                     }                 
                 ?>
