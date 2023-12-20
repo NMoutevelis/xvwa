@@ -32,6 +32,7 @@
             <?php
             if (isset($_REQUEST['target'])) {
                 $target = $_REQUEST['target'];
+             if (preg_match('/^[a-zA-Z0-9.-]+$/', $target)) {
              $safeTarget = escapeshellarg($target);
                 if($safeTarget){
                     if (stristr(php_uname('s'), 'Windows NT')) { 
@@ -44,6 +45,7 @@
                         echo '<pre>'.$cmd.'</pre>';
                     }
                 }
+             }
             }
                 
             ?>
