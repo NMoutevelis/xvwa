@@ -5,6 +5,9 @@ $doc = new DOMDocument;
 $doc->load('coffee.xml');
 $xpath = new DOMXPath($doc);
 $input = $_POST['search'];
+     if (!preg_match("/^[a-zA-Z0-9]*$/", $input)) {
+        return false;
+     }
 $query = "/Coffees/Coffee[@ID='".$input."']";
 #$result = isset($xpath->query($query)) ? $xpath->query($query) : '';
 $result = $xpath->query($query);
