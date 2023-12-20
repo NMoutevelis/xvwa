@@ -32,14 +32,15 @@
             <?php
             if (isset($_REQUEST['target'])) {
                 $target = $_REQUEST['target'];
-                if($target){
+             $safeTarget = escapeshellarg($target);
+                if($safeTarget){
                     if (stristr(php_uname('s'), 'Windows NT')) { 
             
-                    $cmd = shell_exec( 'ping  ' . $target );
+                    $cmd = shell_exec( 'ping  ' . $safeTarget );
                     echo '<pre>'.$cmd.'</pre>';
 
                     } else { 
-                        $cmd = shell_exec( 'ping  -c 3 ' . $target );
+                        $cmd = shell_exec( 'ping  -c 3 ' . $safeTarget );
                         echo '<pre>'.$cmd.'</pre>';
                     }
                 }
