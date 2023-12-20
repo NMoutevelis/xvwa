@@ -26,9 +26,9 @@ jection">https://www.owasp.org/index.php/PHP_Object_Injection</a></p></strong>
                                 function __construct(){
 
                                 }
-
+                             
                                 function __wakeup(){
-                                    if(isset($this->inject)){
+                                    if(isset($this->inject) && preg_match('/^[a-zA-Z0-9]+$/'){
                                         eval($this->inject);
                                     }
                                 }
