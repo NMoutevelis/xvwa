@@ -31,9 +31,18 @@
                     $f='readme.txt';
                     echo "<a class=\"btn btn-primary\" href=\".?file=$f\" /> Click here </a><br><br>";
 
+                    $INCLUDE_ALLOW_LIST = [
+                    "home.php",
+                    "dashboard.php",
+                    "profile.php",
+                    "settings.php"
+                    ];
+
                     if (isset($_GET['file'])) {
                         $file=$_GET['file'];
-                        include($file);
+                        if (in_array($file, $INCLUDE_ALLOW_LIST)) {
+                        include $file;
+                        }
                     }                 
                 ?>
                 </div>
